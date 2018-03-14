@@ -1,17 +1,15 @@
 version: '2'
 services:
-  web:
-    build: .
+  customer:
+    image: "sureshkanna/customer:0.20.0"
     ports:
-     - "5000:5000"
-    volumes:
-     - .:/code
+     - "2017:8080"    
     networks:
-      - redis-network
-  redis:
-    image: "redis:alpine"
+      - kanna-network
+  order:
+    image: "sureshkanna/order:0.20.0"
     networks:
-      - redis-network
+      - kanna-network
 networks:
-  redis-network:
+  kanna-network:
     driver: bridge  
