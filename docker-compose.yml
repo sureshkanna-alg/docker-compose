@@ -8,6 +8,8 @@ services:
       - kanna-network
   order:
     image: "sureshkanna/order:0.20.0"
+    ports:
+     - "2018:8080"
     networks:
       - kanna-network
 networks:
